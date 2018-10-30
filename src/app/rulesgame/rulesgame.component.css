@@ -6,12 +6,13 @@
 }
 
 .card{
-	margin-bottom: 20%;
+	margin-bottom: 10%;
 	margin-top: 10%;
 }
 
 p{
 	font-size: 22px;
+	text-align: justify;
 }
 
 a{
