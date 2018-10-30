@@ -13,6 +13,7 @@ import { GeolocalisationComponent } from './geolocalisation/geolocalisation.comp
 import { CandyBoxComponent } from './candy-box/candy-box.component';
 import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 import { ContactComponent } from './contact/contact.component';
+import { RulesgameComponent } from './rulesgame/rulesgame.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ContactComponent } from './contact/contact.component';
     AccueilComponent,
     GeolocalisationComponent,
     CandyBoxComponent,
-    ContactComponent
+    ContactComponent,
+    RulesgameComponent
 
   ],
   imports: [
