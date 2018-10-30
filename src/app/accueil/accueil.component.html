@@ -1,8 +1,8 @@
 <div class="accueil">
 	<h1>Candy-Go</h1>
 	<h2>Candy-Up And Go !</h2>
-	<h2><span class="badge badge-light">Collect as may Candy as you can !</span></h2>
-	<button type="button" (click)="open(content)" class="btn btn-dark">Let's go !</button>
+	<h2><span class="badge badge-light">Collect as many Candy as you can !</span></h2>
+	<button type="button" (click)="open(content)" class="btn btn-dark" routerLink="/candyPlay">Let's go !</button>
 </div>
 <ng-template #content let-modal>
 	<div class="modal-header">
@@ -24,4 +24,5 @@
 		<button type="button" class="btn btn-outline-success" (click)="activeModal.close('Close click')">Let's go !</button>
 	</div>
 </ng-template>
+
 <app-footer></app-footer>
