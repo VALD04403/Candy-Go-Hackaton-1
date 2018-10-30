@@ -1,7 +1,19 @@
 import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router'; 
+import { AccueilComponent } from './accueil/accueil.component';
+import { GeolocalisationComponent } from './geolocalisation/geolocalisation.component';
+import { CandyBoxComponent } from './candy-box/candy-box.component';
 
+const routes: Routes = [
+{ path: 'default', component: AccueilComponent },
+{ path: '', redirectTo: 'default', pathMatch: 'full' },
+{ path: 'candyplay', component: GeolocalisationComponent },
+{ path: 'candy-box', component: CandyBoxComponent },
+]
 
 @NgModule({
-  imports: [],
+	exports: [ RouterModule ],
+	imports: [ RouterModule.forRoot(routes) ],
+
 })
 export class AppRoutingModule { }

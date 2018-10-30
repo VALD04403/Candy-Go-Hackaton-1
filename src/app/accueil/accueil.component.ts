@@ -21,6 +21,7 @@ export class AccueilComponent implements OnInit {
 
   ngOnInit() {
   }
+  
    open(content) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result
   }
