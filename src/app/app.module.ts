@@ -11,7 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AccueilComponent } from './accueil/accueil.component';
 import { GeolocalisationComponent } from './geolocalisation/geolocalisation.component';
 import { CandyBoxComponent } from './candy-box/candy-box.component';
-
+import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -28,7 +28,8 @@ import { CandyBoxComponent } from './candy-box/candy-box.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    NgbCollapseModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
