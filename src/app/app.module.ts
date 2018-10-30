@@ -12,6 +12,7 @@ import { AccueilComponent } from './accueil/accueil.component';
 import { GeolocalisationComponent } from './geolocalisation/geolocalisation.component';
 import { CandyBoxComponent } from './candy-box/candy-box.component';
 import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
     FooterComponent,
     AccueilComponent,
     GeolocalisationComponent,
-    CandyBoxComponent
+    CandyBoxComponent,
+    ContactComponent
 
   ],
   imports: [
