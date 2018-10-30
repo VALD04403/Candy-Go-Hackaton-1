@@ -1,17 +1,76 @@
 <app-header></app-header>
-<div>
-  <div>
-      <label for="latitude">Latitude:</label>
-      <input id="latitude" type="number" [(ngModel)]="latitude" placeholder="Latitude">
-  </div>
 
-  <div>
-      <label for="longitude">Longitude:</label>
-      <input id="longitude" type="number" [(ngModel)]="longitude" placeholder="Longitude">
-  </div>
-  <button (click)="setCenter()">Go</button>
-</div>
-<br>
-<div id="map" class="map"></div>
-<div id="mouse-position"></div>
+<aol-map [width]="'70%'" [height]="'100%'">
+  <aol-interaction-default></aol-interaction-default>
+  <aol-control-defaults></aol-control-defaults>
+  <aol-control-fullscreen></aol-control-fullscreen>
 
+  <!-- On Open Coordiantes -->
+  <aol-view [zoom]="14">
+    <aol-coordinate [x]="0.685" [y]="47.387" [srid]="'EPSG:4326'"></aol-coordinate>
+  </aol-view>
+
+  <aol-layer-tile [opacity]="1">
+    <aol-source-osm></aol-source-osm>
+  </aol-layer-tile>
+
+  <!-- Generates random placements on map-->
+
+  <aol-layer-vector>
+    <aol-source-cluster [distance]="distance">
+      <aol-source-vector>
+        <aol-feature *ngFor="let p of points">
+          <!-- <aol-geometry-point>
+            <aol-coordinate [x]="p.x" [y]="p.y" [srid]="'EPSG:4326'"></aol-coordinate>
+          </aol-geometry-point> -->
+
+          <aol-overlay>
+            <aol-coordinate [x]="p.x" [y]="p.y" [srid]="'EPSG:4326'">
+            </aol-coordinate>
+            <aol-content>
+              <span (click)="openLg(content)">
+                  <img class="icon" src="https://images.vexels.com/media/users/3/143862/isolated/preview/699f4b859d8b3a8f144a3295a109d3f8-lolypop-mill-sweet-cartoon-by-vexels.png">
+              </span>
+            </aol-content>
+          </aol-overlay>
+
+        </aol-feature>
+      </aol-source-vector>
+    </aol-source-cluster>
+  </aol-layer-vector>
+
+  <!--Zone of Search Co-ordinates -->
+
+  <aol-layer-vector>
+    <aol-source-vector>
+      <aol-feature>
+        <aol-geometry-polygon>
+          <aol-collection-coordinates [coordinates]="[[0.653, 47.401],[0.711, 47.401],[0.711, 47.376], [0.653, 47.376]]"
+            [srid]="'EPSG:4326'">
+          </aol-collection-coordinates>
+        </aol-geometry-polygon>
+        <!-- Zone of Search Area -->
+        <aol-style>
+          <aol-style-stroke [color]="'orange'" [width]="2"></aol-style-stroke>
+          <aol-style-fill [color]="[255,0,0,0.1]"></aol-style-fill>
+        </aol-style>
+      </aol-feature>
+    </aol-source-vector>
+  </aol-layer-vector>
+
+</aol-map>
+
+<!-- Modal Pop-up -->
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title"></h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+  </div>
+</ng-template>

@@ -1,8 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule} from '@angular/forms'
+import { FormsModule } from '@angular/forms'
 import { HttpClientModule } from '@angular/common/http';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { AngularOpenlayersModule } from 'ngx-openlayers';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -28,9 +30,11 @@ import { CandyBoxComponent } from './candy-box/candy-box.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    AngularOpenlayersModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule  { }
+export class AppModule { }
