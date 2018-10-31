@@ -2,7 +2,7 @@
 
 <div class="container">
 
-
+  <h1 class="title d-flex justify-content-center">Candy-play</h1>
   <!-- Countdown Clock -->
   <div class="panel">
     <span class="clock">
@@ -55,35 +55,37 @@
         <aol-feature>
           <aol-geometry-polygon>
             <aol-collection-coordinates [coordinates]="[[0.653, 47.401],[0.711, 47.401],[0.711, 47.376], [0.653, 47.376]]"
-              [srid]="'EPSG:4326'">
-            </aol-collection-coordinates>
-          </aol-geometry-polygon>
-          <!-- Zone of Search Area -->
-          <aol-style>
-            <aol-style-stroke [color]="'orange'" [width]="2"></aol-style-stroke>
-            <aol-style-fill [color]="[255,0,0,0.1]"></aol-style-fill>
-          </aol-style>
-        </aol-feature>
-      </aol-source-vector>
-    </aol-layer-vector>
+            [srid]="'EPSG:4326'">
+          </aol-collection-coordinates>
+        </aol-geometry-polygon>
+        <!-- Zone of Search Area -->
+        <aol-style>
+          <aol-style-stroke [color]="'orange'" [width]="2"></aol-style-stroke>
+          <aol-style-fill [color]="[255,0,0,0.1]"></aol-style-fill>
+        </aol-style>
+      </aol-feature>
+    </aol-source-vector>
+  </aol-layer-vector>
 
-  </aol-map>
+</aol-map>
 
 
-  <!-- Modal Pop-up -->
-  <ng-template #content let-modal>
-    <div class="modal-header">
-      <h4 class="modal-title"> Sweet! </h4>
-      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">Boost! Energy Value: 50 
-    </div>
-    <div class="modal-footer">
-      <a class="nav-link" routerLink='/candy-box' type="button" class="btn btn-light" (click)="modal.close('Close click')">Eat-up!</a>
-    </div>
-  </ng-template>
+<!-- Modal Pop-up -->
+<ng-template #content let-modal>
+
+  <div class="modal-header">
+    <h4 class="modal-title"> Sweet! </h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+
+  <div class="modal-footer">
+    <a class="nav-link" routerLink='/candy-box' type="button" class="btn" (click)="modal.close('Close click')">Boost! Energy: 50 </a>
+  </div>
+
+</ng-template>
 
 
 </div>
