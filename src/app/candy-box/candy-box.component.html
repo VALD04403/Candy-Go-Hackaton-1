@@ -1,16 +1,18 @@
 <app-header></app-header>
 <div class="container-fluid">
-<h1 class="my-2 d-flex justify-content-center">Candy Box</h1>
-<div class="row d-flex justify-content-center">
-    <div class="card m-1 col-12 col-sm-6 col-lg-4 col-xl-3" style="max-width: 370px;" *ngFor="let bonbon of bonbons | paginate:{itemsPerPage:8, currentPage: page}">
-        <img class="card-img-top m-1" src="{{bonbon.image_url}}" alt="Card image cap Responsive image" style="max-height: 250px;">
-        <div class="card-body">
-            <h5 class="card-title d-flex justify-content-center">{{bonbon.product_name}}</h5>
+    <h1 class="my-2 d-flex justify-content-center">Candy Box</h1>
+    <span class="m-3 d-flex justify-content-center border border-success">Your Energy: </span>
+    <div class="row d-flex justify-content-center">
+        <div class="card m-1 col-12 col-sm-6 col-lg-4 col-xl-3" style="max-width: 370px;" *ngFor="let bonbon of bonbons | paginate:{itemsPerPage:8, currentPage: page}">
+            <img class="card-img-top m-1" src="{{bonbon.image_url}}" alt="Card image cap Responsive image" style="max-height: 250px;">
+            <div class="card-body">
+                <h5 class="card-title d-flex justify-content-center">{{bonbon.product_name}}</h5>
+                <h5 class="card-title d-flex justify-content-center">Energy Value: {{bonbon.nutriments.energy_value}}</h5>
+            </div>
         </div>
     </div>
-</div>
-<div class="my-1 d-flex justify-content-center">
-  <pagination-controls previousLabel="" nextLabel="" responsive="true" (pageChange)="page = $event"></pagination-controls>
-</div>
+    <div class="my-1 d-flex justify-content-center">
+        <pagination-controls previousLabel="" nextLabel="" responsive="true" (pageChange)="page = $event"></pagination-controls>
+    </div>
 </div>
 <app-footer></app-footer>
