@@ -1,8 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule} from '@angular/forms'
+import { FormsModule } from '@angular/forms'
 import { HttpClientModule } from '@angular/common/http';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { AngularOpenlayersModule } from 'ngx-openlayers';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CountdownModule} from 'ngx-countdown';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -34,8 +37,11 @@ import { RulesgameComponent } from './rulesgame/rulesgame.component';
     HttpClientModule,
     NgxPaginationModule,
     NgbCollapseModule,
+    AngularOpenlayersModule,
+    NgbModule,
+    CountdownModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule  { }
+export class AppModule { }
