@@ -21,7 +21,7 @@ h1{
 
 h2{
 	text-align: center;
-	margin-top: 10%;
+	margin-top: 5%;
 	font-family:Marker Felt;
 	font-size: 55px;
 }
@@ -30,7 +30,7 @@ h2{
 .btn-dark{
 	display: block;
 	margin : auto;
-	margin-top: 12%;
+	margin-top: 6%;
 	width: 50%;
 	height: 8%;
 	font-size: 35px;
@@ -82,4 +82,12 @@ h2{
 	position: relative;
 	opacity: 0.9;
 	z-index: 2;
+}
+
+
+.hallow{
+	
+}
+.panel{
+	margin-top: 5%;
 }
