@@ -15,6 +15,6 @@ export class BonbonService {
 
   readById(id: string): Observable<any> {
     return this.service.get<any>(`https://fr-en.openfoodfacts.org/category/candies/1.json`);
-}
+  }
 
 }

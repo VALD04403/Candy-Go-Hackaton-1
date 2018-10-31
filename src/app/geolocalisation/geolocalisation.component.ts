@@ -13,7 +13,7 @@ export class GeolocalisationComponent implements OnInit {
   distance = 60;
   points: Array<{ x: number; y: number; }> = [];
 
-  constructor (private modalService: NgbModal){}
+  constructor (private modalService: NgbModal) {}
 
   ngOnInit() {
     // Generates random points
@@ -29,10 +29,10 @@ export class GeolocalisationComponent implements OnInit {
   getRandomInRange(from, to, fixed) {
     return (Math.random() * (to - from) + from).toFixed(fixed) * 1;
   }
- 
-  openLg(content){
+
+  openLg(content) {
     console.log('hey');
-    this.modalService.open(content,{size:'lg'});
+    this.modalService.open(content, {size: 'lg'});
   }
 
 }
