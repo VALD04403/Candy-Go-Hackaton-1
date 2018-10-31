@@ -1,6 +1,7 @@
 .icon {
   max-width: 10%;
   max-height: 100%;
+  cursor: pointer;
 }
 
 .panel {
