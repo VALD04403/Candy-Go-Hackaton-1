@@ -1,7 +1,7 @@
 <app-header></app-header>
 
 <div class="container">
-<h1 class="title d-flex justify-content-center">Candy-play</h1>
+  <h1 class="title d-flex justify-content-center">Candy-play</h1>
   <!-- Energy Score -->
 
   <span class="m-3 d-flex justify-content-center border border-success">Your Energy: {{ service.score }}</span>
@@ -16,7 +16,7 @@
     <aol-control-fullscreen></aol-control-fullscreen>
 
 
-  <!-- View when site is opened with Coordinates -->
+    <!-- View when site is opened with Coordinates -->
 
     <aol-view [zoom]="14">
       <aol-coordinate [x]="0.685" [y]="47.387" [srid]="'EPSG:4326'"></aol-coordinate>
@@ -26,9 +26,9 @@
       <aol-source-osm></aol-source-osm>
     </aol-layer-tile>
 
-  <!-- View when site is opened with Coordinates -->
+    <!-- View when site is opened with Coordinates -->
 
-  <!-- Generates random placements on map with markers-->
+    <!-- Generates random placements on map with markers-->
 
     <aol-layer-vector>
       <aol-source-cluster [distance]="distance">
@@ -51,9 +51,9 @@
       </aol-source-cluster>
     </aol-layer-vector>
 
-   <!-- Generates random placements on map with markers end-->
+    <!-- Generates random placements on map with markers end-->
 
-  <!--Zone of Search Coordinates -->
+    <!--Zone of Search Coordinates -->
 
     <aol-layer-vector>
       <aol-source-vector>
@@ -72,12 +72,12 @@
       </aol-source-vector>
     </aol-layer-vector>
 
-  <!--Zone of Search Coordinates end-->
+    <!--Zone of Search Coordinates end-->
 
 
   </aol-map>
 
-<!-- Map View End-->
+  <!-- Map View End-->
 
   <!-- Modal Pop-up -->
 

@@ -26,6 +26,7 @@
     "ngx-countdown": "^3.1.0",
     "ngx-openlayers": "^0.8.22",
     "ngx-pagination": "^3.2.1",
+    "ngx-spinner": "^6.1.2",
     "rxjs": "~6.2.0",
     "zone.js": "~0.8.26"
   },
