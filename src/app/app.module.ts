@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { AngularOpenlayersModule } from 'ngx-openlayers';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CountdownModule} from 'ngx-countdown';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -32,7 +33,8 @@ import { CandyBoxComponent } from './candy-box/candy-box.component';
     HttpClientModule,
     NgxPaginationModule,
     AngularOpenlayersModule,
-    NgbModule
+    NgbModule,
+    CountdownModule
   ],
   providers: [],
   bootstrap: [AppComponent]

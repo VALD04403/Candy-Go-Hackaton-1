@@ -1,76 +1,89 @@
 <app-header></app-header>
 
-<aol-map [width]="'70%'" [height]="'100%'">
-  <aol-interaction-default></aol-interaction-default>
-  <aol-control-defaults></aol-control-defaults>
-  <aol-control-fullscreen></aol-control-fullscreen>
+<div class="container">
 
-  <!-- On Open Coordiantes -->
-  <aol-view [zoom]="14">
-    <aol-coordinate [x]="0.685" [y]="47.387" [srid]="'EPSG:4326'"></aol-coordinate>
-  </aol-view>
 
-  <aol-layer-tile [opacity]="1">
-    <aol-source-osm></aol-source-osm>
-  </aol-layer-tile>
+  <!-- Countdown Clock -->
+  <div class="panel">
+    <span class="clock">
+      <countdown class="countdown" [config]="{leftTime: 60}">$!m!:$!s!</countdown>
+    </span>
+  </div>
 
-  <!-- Generates random placements on map-->
+  <aol-map>
+    <aol-interaction-default></aol-interaction-default>
+    <aol-control-defaults></aol-control-defaults>
+    <aol-control-fullscreen></aol-control-fullscreen>
 
-  <aol-layer-vector>
-    <aol-source-cluster [distance]="distance">
-      <aol-source-vector>
-        <aol-feature *ngFor="let p of points">
-          <!-- <aol-geometry-point>
-            <aol-coordinate [x]="p.x" [y]="p.y" [srid]="'EPSG:4326'"></aol-coordinate>
-          </aol-geometry-point> -->
+    <!-- On Open Coordiantes -->
+    <aol-view [zoom]="14">
+      <aol-coordinate [x]="0.685" [y]="47.387" [srid]="'EPSG:4326'"></aol-coordinate>
+    </aol-view>
 
-          <aol-overlay>
-            <aol-coordinate [x]="p.x" [y]="p.y" [srid]="'EPSG:4326'">
-            </aol-coordinate>
-            <aol-content>
-              <span (click)="openLg(content)">
+    <aol-layer-tile [opacity]="1">
+      <aol-source-osm></aol-source-osm>
+    </aol-layer-tile>
+
+    <!-- Generates random placements on map-->
+
+    <aol-layer-vector>
+      <aol-source-cluster [distance]="distance">
+        <aol-source-vector>
+          <aol-feature *ngFor="let p of points">
+            <aol-geometry-point>
+              <!-- <aol-coordinate [x]="p.x" [y]="p.y" [srid]="'EPSG:4326'"></aol-coordinate> -->
+            </aol-geometry-point>
+
+            <aol-overlay>
+              <aol-coordinate [x]="p.x" [y]="p.y" [srid]="'EPSG:4326'"></aol-coordinate>
+              <aol-content>
+                <span (click)="openLg(content)">
                   <img class="icon" src="https://images.vexels.com/media/users/3/143862/isolated/preview/699f4b859d8b3a8f144a3295a109d3f8-lolypop-mill-sweet-cartoon-by-vexels.png">
-              </span>
-            </aol-content>
-          </aol-overlay>
+                </span>
+              </aol-content>
+            </aol-overlay>
 
+          </aol-feature>
+        </aol-source-vector>
+      </aol-source-cluster>
+    </aol-layer-vector>
+
+    <!--Zone of Search Co-ordinates -->
+
+    <aol-layer-vector>
+      <aol-source-vector>
+        <aol-feature>
+          <aol-geometry-polygon>
+            <aol-collection-coordinates [coordinates]="[[0.653, 47.401],[0.711, 47.401],[0.711, 47.376], [0.653, 47.376]]"
+              [srid]="'EPSG:4326'">
+            </aol-collection-coordinates>
+          </aol-geometry-polygon>
+          <!-- Zone of Search Area -->
+          <aol-style>
+            <aol-style-stroke [color]="'orange'" [width]="2"></aol-style-stroke>
+            <aol-style-fill [color]="[255,0,0,0.1]"></aol-style-fill>
+          </aol-style>
         </aol-feature>
       </aol-source-vector>
-    </aol-source-cluster>
-  </aol-layer-vector>
+    </aol-layer-vector>
 
-  <!--Zone of Search Co-ordinates -->
+  </aol-map>
 
-  <aol-layer-vector>
-    <aol-source-vector>
-      <aol-feature>
-        <aol-geometry-polygon>
-          <aol-collection-coordinates [coordinates]="[[0.653, 47.401],[0.711, 47.401],[0.711, 47.376], [0.653, 47.376]]"
-            [srid]="'EPSG:4326'">
-          </aol-collection-coordinates>
-        </aol-geometry-polygon>
-        <!-- Zone of Search Area -->
-        <aol-style>
-          <aol-style-stroke [color]="'orange'" [width]="2"></aol-style-stroke>
-          <aol-style-fill [color]="[255,0,0,0.1]"></aol-style-fill>
-        </aol-style>
-      </aol-feature>
-    </aol-source-vector>
-  </aol-layer-vector>
 
-</aol-map>
+  <!-- Modal Pop-up -->
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title"> Sweet! </h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">Boost! Energy Value: 50 &times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+    </div>
+    <div class="modal-footer">
+      <a class="nav-link" routerLink='/candy-box' type="button" class="btn btn-light" (click)="modal.close('Close click')">Eat-up!</a>
+    </div>
+  </ng-template>
 
-<!-- Modal Pop-up -->
-<ng-template #content let-modal>
-  <div class="modal-header">
-    <h4 class="modal-title"></h4>
-    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body">
-  </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
-  </div>
-</ng-template>
+
+</div>

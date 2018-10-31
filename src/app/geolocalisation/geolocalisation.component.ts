@@ -37,14 +37,6 @@ export class GeolocalisationComponent implements OnInit {
 
 }
 
-// watcher - position refreshed every 15sec //
-
-// const watcher = navigator.geolocation.watchPosition(displayLocationInfo);
-
-// setTimeout(() => {
-//   navigator.geolocation.clearWatch(watcher);
-// }, 15000);
-
 // function to get currentPosition //
 
 if (navigator.geolocation) {
@@ -57,5 +49,7 @@ function displayLocationInfo(position) {
 
   console.log(`longitude: ${ lng } | latitude: ${ lat }`);
 }
+
+
 
 
