@@ -39,9 +39,9 @@ export class GeolocalisationComponent implements OnInit {
 
 // function to get currentPosition //
 
-if (navigator.geolocation) {
-  navigator.geolocation.getCurrentPosition(displayLocationInfo);
-}
+//if (navigator.geolocation) {
+ // navigator.geolocation.getCurrentPosition(displayLocationInfo);
+//}
 
 function displayLocationInfo(position) {
   const lng = position.coords.longitude;

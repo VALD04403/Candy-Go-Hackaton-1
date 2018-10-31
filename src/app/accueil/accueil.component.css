@@ -1,10 +1,12 @@
 .accueil{
 	height: 100vh;
 	width: 100vw;
-	background-image: url('https://wallpapercave.com/wp/wp2251638.jpg'); 
-	background-size: cover;
 	min-width: 400px;
 	min-height: 1200px;
+	background: #3a6186; /* fallback for old browsers */
+	background: -webkit-linear-gradient(to left, #DC143C , #FF8C00); /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to left, #DC143C , #FF8C00); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	color : #fff;
 	
 }
 
@@ -29,7 +31,7 @@ h2{
 	display: block;
 	margin : auto;
 	margin-top: 12%;
-	width: 25%;
+	width: 30%;
 	height: 8%;
 	font-size: 35px;
 }
@@ -39,9 +41,7 @@ h2{
 	.btn-dark{
 		display: block;
 		margin : auto;
-		margin-top: 30%;
-		
-
+		margin-top: 40%;
 	}
 
 	.accueil{
@@ -52,21 +52,22 @@ h2{
 
 @media only screen and (min-width: 200px) and (max-width: 550px){
 	h1{
-		font-size: 60px;
+		font-size: 65px;
 	}
 
 	h2{
 		text-align: center;
-		margin-top: 15%;
-		font-size: 32px;
+		margin-top: 20%;
+		font-size: 35px;
 
 	}
 
 	.btn-dark{
 		display: block;
 		margin : auto;
-		margin-top: 35%;
-		font-size: 21px;
+		margin-top: 45%;
+		font-size: 25px;
+		min-width: 35%;
 	}
 
 	.accueil{
