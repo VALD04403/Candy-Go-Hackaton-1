@@ -1,5 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import { BonbonService } from '../common/bonbon.service';
 
 
 @Component({
@@ -13,10 +14,12 @@ export class GeolocalisationComponent implements OnInit {
   distance = 60;
   points: Array<{ x: number; y: number; }> = [];
 
-  constructor (private modalService: NgbModal){}
+  constructor (private modalService: NgbModal, private service: BonbonService) {}
 
   ngOnInit() {
-    // Generates random points
+
+    // Generates random placments //
+
     const nbPoints = 20;
     for (let i = 0; i < nbPoints; ++i) {
       this.points.push({
@@ -29,26 +32,32 @@ export class GeolocalisationComponent implements OnInit {
   getRandomInRange(from, to, fixed) {
     return (Math.random() * (to - from) + from).toFixed(fixed) * 1;
   }
- 
-  openLg(content){
-    console.log('hey');
-    this.modalService.open(content,{size:'lg'});
+
+    // Generates energy points //
+
+  totalEnergy(gain) {
+    this.service.totalEnergy(gain);
+    }
+
+    // open of modal //
+  openLg(content) {
+    this.modalService.open(content, {size: 'lg'});
   }
 
 }
 
-// function to get currentPosition //
+// FUNCTION TO GET CURRENT POSITION - new feature for 2019 //
 
-if (navigator.geolocation) {
-  navigator.geolocation.getCurrentPosition(displayLocationInfo);
-}
+// //if (navigator.geolocation) {
+//  // navigator.geolocation.getCurrentPosition(displayLocationInfo);
+// //}
 
-function displayLocationInfo(position) {
-  const lng = position.coords.longitude;
-  const lat = position.coords.latitude;
+// function displayLocationInfo(position) {
+//   const lng = position.coords.longitude;
+//   const lat = position.coords.latitude;
 
-  console.log(`longitude: ${ lng } | latitude: ${ lat }`);
-}
+//   console.log(`longitude: ${ lng } | latitude: ${ lat }`);
+// }
 
 
 

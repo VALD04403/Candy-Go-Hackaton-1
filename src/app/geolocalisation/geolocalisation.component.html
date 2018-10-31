@@ -2,20 +2,22 @@
 
 <div class="container">
 
+  <!-- Energy Score -->
 
-  <!-- Countdown Clock -->
-  <div class="panel">
-    <span class="clock">
-      <countdown class="countdown" [config]="{leftTime: 60}">$!m!:$!s!</countdown>
-    </span>
-  </div>
+  <span class="m-3 d-flex justify-content-center border border-success">Your Energy: {{ service.score }}</span>
+
+  <!-- Energy Score end -->
+
+  <!-- Map View -->
 
   <aol-map>
     <aol-interaction-default></aol-interaction-default>
     <aol-control-defaults></aol-control-defaults>
     <aol-control-fullscreen></aol-control-fullscreen>
 
-    <!-- On Open Coordiantes -->
+
+  <!-- View when site is opened with Coordinates -->
+
     <aol-view [zoom]="14">
       <aol-coordinate [x]="0.685" [y]="47.387" [srid]="'EPSG:4326'"></aol-coordinate>
     </aol-view>
@@ -24,14 +26,15 @@
       <aol-source-osm></aol-source-osm>
     </aol-layer-tile>
 
-    <!-- Generates random placements on map-->
+  <!-- View when site is opened with Coordinates -->
+
+  <!-- Generates random placements on map with markers-->
 
     <aol-layer-vector>
       <aol-source-cluster [distance]="distance">
         <aol-source-vector>
           <aol-feature *ngFor="let p of points">
             <aol-geometry-point>
-              <!-- <aol-coordinate [x]="p.x" [y]="p.y" [srid]="'EPSG:4326'"></aol-coordinate> -->
             </aol-geometry-point>
 
             <aol-overlay>
@@ -48,7 +51,9 @@
       </aol-source-cluster>
     </aol-layer-vector>
 
-    <!--Zone of Search Co-ordinates -->
+   <!-- Generates random placements on map with markers end-->
+
+  <!--Zone of Search Coordinates -->
 
     <aol-layer-vector>
       <aol-source-vector>
@@ -58,7 +63,7 @@
               [srid]="'EPSG:4326'">
             </aol-collection-coordinates>
           </aol-geometry-polygon>
-          <!-- Zone of Search Area -->
+          <!-- Zone of Search Area Style-->
           <aol-style>
             <aol-style-stroke [color]="'orange'" [width]="2"></aol-style-stroke>
             <aol-style-fill [color]="[255,0,0,0.1]"></aol-style-fill>
@@ -67,23 +72,27 @@
       </aol-source-vector>
     </aol-layer-vector>
 
+  <!--Zone of Search Coordinates end-->
+
+
   </aol-map>
 
+<!-- Map View End-->
 
   <!-- Modal Pop-up -->
+
   <ng-template #content let-modal>
     <div class="modal-header">
       <h4 class="modal-title"> Sweet! </h4>
-      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-        <span aria-hidden="true"> &times;</span>
-      </button>
     </div>
     <div class="modal-body">Boost! Energy Value: 50
     </div>
     <div class="modal-footer">
-      <a class="nav-link" routerLink='/candy-box' type="button" class="btn btn-light" (click)="modal.close('Close click')">Eat-up!</a>
+      <a class="nav-link" type="button" class="btn btn-light" (click)="modal.close('Close click'); totalEnergy(50)">Eat-up!</a>
     </div>
   </ng-template>
+
+  <!-- Modal Pop-up end -->
 
 
 </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BonbonService } from '../common/bonbon.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 
 @Component({
@@ -11,12 +12,14 @@ export class CandyBoxComponent implements OnInit {
 bonbons: any;
 page: 1;
 
-  constructor(private service: BonbonService) { }
+  constructor(public service: BonbonService, private modalService: NgbModal) { }
 
   ngOnInit() {
     this.service.readAll().subscribe(res => {
     this.bonbons = res.products;
     });
   }
-
+  openLg(content) {
+    this.modalService.open(content, { size: 'lg' });
+  }
 }
