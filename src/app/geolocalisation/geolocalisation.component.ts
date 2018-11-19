@@ -14,7 +14,7 @@ export class GeolocalisationComponent implements OnInit {
   distance = 60;
   points: Array<{ x: number; y: number; }> = [];
 
-  constructor (private modalService: NgbModal, private service: BonbonService) {}
+  constructor (private modalService: NgbModal, public service: BonbonService) {}
 
   ngOnInit() {
 
