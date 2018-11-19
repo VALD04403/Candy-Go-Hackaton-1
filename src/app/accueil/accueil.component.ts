@@ -17,13 +17,8 @@ export class AccueilComponent implements OnInit {
 
   constructor(private modalService: NgbModal) { }
 
-  
 
   ngOnInit() {
-  }
-  
-   open(content) {
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result
   }
 
 }
